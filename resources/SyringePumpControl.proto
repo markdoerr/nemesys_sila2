@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+package syringepumpcontrol;
+
+service SyringePumpControl {
+    rpc InitializeAll(InitializeAllParameters) returns (InitializeAllResponses) {}
+    rpc SetSyringeParameter(SetSyringeParameterParameters) returns (SetSyringeParameterResponses) {}
+    rpc SetVolumeUnit(SetVolumeUnitParameters) returns (SetVolumeUnitResponses) {}
+    rpc Calibrate(CalibrateParameters) returns (CalibrateResponses) {}
+    rpc Aspirate(AspirateParameters) returns (AspirateResponses) {}
+    rpc Dispense(DispenseParameters) returns (DispenseResponses) {}
+    rpc GetPumpState(GetPumpStateParameters) returns (GetPumpStateResponses) {}
+    rpc GetGetVolumeMax(GetGetVolumeMaxParameters) returns (GetGetVolumeMaxResponses) {}
+    rpc GetImplementedFeatures(GetImplementedFeaturesParameters) returns (GetImplementedFeaturesResponses) {}
+}
+
+message InitializeAllParameters {
+}
+
+message InitializeAllResponses {
+}
+
+message SetSyringeParameterParameters {
+    oneof pPumpID { string PumpID = 1; }
+}
+
+message SetSyringeParameterResponses {
+    oneof pSetSyringeParameterResponse { string SetSyringeParameterResponse = 1; }
+}
+
+message SetVolumeUnitParameters {
+    oneof pPumpID { string PumpID = 1; }
+}
+
+message SetVolumeUnitResponses {
+    oneof pSetVolumeUnitResponse { string SetVolumeUnitResponse = 1; }
+}
+
+message CalibrateParameters {
+    oneof pPumpID { string PumpID = 1; }
+}
+
+message CalibrateResponses {
+    oneof pCalibrateResponse { string CalibrateResponse = 1; }
+}
+
+message AspirateParameters {
+    oneof pPumpID { string PumpID = 1; }
+    oneof pVolume { double Volume = 2; }
+}
+
+message AspirateResponses {
+    oneof pAspirateResponse { string AspirateResponse = 1; }
+}
+
+message DispenseParameters {
+    oneof pPumpID { string PumpID = 1; }
+    oneof pVolume { double Volume = 2; }
+}
+
+message DispenseResponses {
+    oneof pDispenseResponse { string DispenseResponse = 1; }
+}
+
+message GetPumpStateParameters {
+}
+
+message GetPumpStateResponses {
+    oneof pPumpState { double PumpState = 1; }
+}
+
+message GetGetVolumeMaxParameters {
+}
+
+message GetGetVolumeMaxResponses {
+    oneof pGetVolumeMax { double GetVolumeMax = 1; }
+}
+
+message GetImplementedFeaturesParameters {
+}
+
+message GetImplementedFeaturesResponses {
+    repeated string ImplementedFeatures = 1;
+}
+

@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<SiLA version="2.0"
+      xmlns="http://www.sila-standard.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/current/sila-feature.xsd"
+>
+<!-- SyringePumpControl Feature - !!! old XML scheme -->
+
+<Feature>
+    <Identifier>SyringePumpControl</Identifier>
+    <DisplayName>Generic Syringe Pump Control</DisplayName>
+    <Description>Syringe Pump Control</Description>
+    <Command>
+        <Identifier>InitializeAll</Identifier>
+        <DisplayName>Initialize Pump - all</DisplayName>
+        <Description>Initialize pump device and all connected peripherials</Description>
+        <Observable>No</Observable>
+        <StandardErrors>
+            <Identifier>InitializationError</Identifier>
+        </StandardErrors>
+    </Command>
+    <Command>
+        <Identifier>SetSyringeParameter</Identifier>
+        <DisplayName>Set Syringe Parameter</DisplayName>
+        <Description>Set Syringe Parameter</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>PumpID</Identifier>
+            <DisplayName>PumpID</DisplayName>
+            <Description>Pump identifier</Description>
+            <DataType>String</DataType>
+        </Parameter>
+        <Response>
+            <Identifier>SetSyringeParameterResponse</Identifier>
+            <DisplayName>SetSyringe Parameter Response</DisplayName>
+            <Description>Response of pump SetSyringeParameter</Description>
+            <DataType>String</DataType>
+        </Response>
+        <StandardErrors>
+            <Identifier>SetSyringeParameterError</Identifier>
+        </StandardErrors>
+    </Command>
+    <Command>
+        <Identifier>SetVolumeUnit</Identifier>
+        <DisplayName>SetVolumeUnit</DisplayName>
+        <Description>SetVolumeUnit</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>PumpID</Identifier>
+            <DisplayName>PumpID</DisplayName>
+            <Description>Pump identifier</Description>
+            <DataType>String</DataType>
+        </Parameter>
+        <Response>
+            <Identifier>SetVolumeUnitResponse</Identifier>
+            <DisplayName>SetVolumeUnit Response</DisplayName>
+            <Description>Response of pump SetVolumeUnit</Description>
+            <DataType>String</DataType>
+        </Response>
+        <StandardErrors>
+            <Identifier>SetVolumeUnitError</Identifier>
+        </StandardErrors>
+    </Command>
+     <Command>
+        <Identifier>Calibrate</Identifier>
+        <DisplayName>Calibrate Pump</DisplayName>
+        <Description>Calibrating the pump</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>PumpID</Identifier>
+            <DisplayName>PumpID</DisplayName>
+            <Description>Pump identifier</Description>
+            <DataType>String</DataType>
+        </Parameter>
+        <Response>
+            <Identifier>CalibrateResponse</Identifier>
+            <DisplayName>Calibrate Response</DisplayName>
+            <Description>Response of pump calibration</Description>
+            <DataType>String</DataType>
+        </Response>
+        <StandardErrors>
+            <Identifier>PumpCalibrationError</Identifier>
+        </StandardErrors>
+    </Command>
+    <Command>
+        <Identifier>Aspirate</Identifier>
+        <DisplayName>Aspirate</DisplayName>
+        <Description>Aspirate a defined volume</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>PumpID</Identifier>
+            <DisplayName>PumpID</DisplayName>
+            <Description>Unique pump identifier</Description>
+            <DataType>String</DataType>
+        </Parameter>
+        <Parameter>
+            <Identifier>Volume</Identifier>
+            <DisplayName>Volume</DisplayName>
+            <Description>Aspiration Volume</Description>
+            <DataType>Real</DataType>
+        </Parameter>
+        <Response>
+            <Identifier>AspirateResponse</Identifier>
+            <DisplayName>Aspirate Response</DisplayName>
+            <Description>Aspirate Response</Description>
+            <DataType>String</DataType>
+        </Response>
+        <StandardErrors>
+            <Identifier>AspirateError</Identifier>
+        </StandardErrors>
+    </Command>
+    <Command>
+        <Identifier>Dispense</Identifier>
+        <DisplayName>Dispense</DisplayName>
+        <Description>Dispense a defined volume</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>PumpID</Identifier>
+            <DisplayName>PumpID</DisplayName>
+            <Description>Unique pump identifier</Description>
+            <DataType>String</DataType>
+        </Parameter>
+        <Parameter>
+            <Identifier>Volume</Identifier>
+            <DisplayName>Volume</DisplayName>
+            <Description>Dispense Volume</Description>
+            <DataType>Real</DataType>
+        </Parameter>
+        <Response>
+            <Identifier>DispenseResponse</Identifier>
+            <DisplayName>Dispense Response</DisplayName>
+            <Description>Dispense Response</Description>
+            <DataType>String</DataType>
+        </Response>
+        <StandardErrors>
+            <Identifier>DispenseError</Identifier>
+        </StandardErrors>
+    </Command>
+    <Property>
+        <Identifier>PumpState</Identifier>
+        <DisplayName>PumpState</DisplayName>
+        <Description>State of the pump</Description>
+        <DataType>Real</DataType>
+        <PropertyType>Static</PropertyType>
+    </Property>
+    <Property>
+        <Identifier>GetVolumeMax</Identifier>
+        <DisplayName>Get Volume Max</DisplayName>
+        <Description>Get maximum pump volume</Description>
+        <DataType>Real</DataType>
+        <PropertyType>Static</PropertyType>
+    </Property>
+    <Property>
+        <Identifier>ImplementedFeatures</Identifier>
+        <DisplayName>Implemented Features</DisplayName>
+        <Description>Returns a list of qualified Feature identifiers of all implemented Features of
+            this SiLA Device.</Description>
+        <DataType>String[]</DataType>
+        <PropertyType>Static</PropertyType>
+    </Property>
+    <StandardError>
+        <Identifier>SyringePumpError1</Identifier>
+        <DisplayName>SyringePumpError1</DisplayName>
+        <Description>SyringePumpError1</Description>
+    </StandardError>
+    <StandardError>
+        <Identifier>SyringePumpError2</Identifier>
+        <DisplayName>SyringePumpError2</DisplayName>
+        <Description>SyringePumpError2</Description>
+    </StandardError>
+</Feature>
+
+</SiLA>
